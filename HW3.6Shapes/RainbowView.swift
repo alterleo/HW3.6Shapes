@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RainbowView: View {
     let rainbSize = 300
-    let rainbColors = [Color.red, Color.yellow, Color.green, Color.blue, Color.purple]
+    let rainbColors = [Color.red, .yellow, .green, .blue, .purple]
     
     @State var toPoint = 0.99
     
@@ -17,7 +17,7 @@ struct RainbowView: View {
         VStack {
             ZStack {
                 
-                ForEach((0..<5)) { indx in
+                ForEach(0..<5) { indx in
                     Circle()
                         .trim(from: 0.5, to: /*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
                         .stroke(Color.gray,
@@ -26,11 +26,11 @@ struct RainbowView: View {
                                     lineCap: .round,
                                     lineJoin: .round)
                         )
-                        .frame(width: CGFloat(rainbSize-indx*41),
-                               height: CGFloat(rainbSize-indx*41)
+                        .frame(width: CGFloat(rainbSize - indx * 41),
+                               height: CGFloat(rainbSize - indx * 41)
                         )
                 }
-                ForEach((0..<5)) { indx in
+                ForEach(0..<5) { indx in
                     Circle()
                         .trim(from: CGFloat(toPoint), to: /*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
                         .stroke(rainbColors[indx],
@@ -39,8 +39,8 @@ struct RainbowView: View {
                                     lineCap: .round,
                                     lineJoin: .round)
                         )
-                        .frame(width: CGFloat(rainbSize-indx*41),
-                               height: CGFloat(rainbSize-indx*41)
+                        .frame(width: CGFloat(rainbSize - indx * 41),
+                               height: CGFloat(rainbSize - indx * 41)
                         )
                         .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true)
                         )
